@@ -150,6 +150,20 @@
           "duration": "Mollit sed quasi rep"
         }
       ]
+    },
+    {
+      "id": "e751",
+      "title": "Eveniet id elit n",
+      "instructor": "Cupidatat maxime nis",
+      "category": "fullstack",
+      "description": "Ut aliqua In quidem",
+      "price": 43,
+      "modules": [
+        {
+          "moduleTitle": "Omnis necessitatibus",
+          "duration": "Exercitation possimu"
+        }
+      ]
     }
   ]
 }

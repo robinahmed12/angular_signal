@@ -25,7 +25,7 @@ export class CourseService {
     this.courses.update((list) => [...list, newCourse]);
   }
   async updateCourse(id: string, course: Course) {
-  const updated = await firstValueFrom(this.http.put<Course>(`${this.apiUrl}/${id}`, course));
+  const updated = await firstValueFrom(this.http.patch<Course>(`${this.apiUrl}/${id}`, course));
     this.courses.update(list => list.map(c => (c.id === id ? updated : c)));
 }
 }

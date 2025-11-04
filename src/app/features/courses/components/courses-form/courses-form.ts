@@ -9,10 +9,11 @@ import {
 import { CourseService } from './../../services/course.service';
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EditCourseModal } from '../../../../shared/components/edit-course-modal/edit-course-modal';
 
 @Component({
   selector: 'app-courses-form',
-  imports: [ReactiveFormsModule, CommonModule, FormsModule],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule,],
   templateUrl: './courses-form.html',
   styleUrl: './courses-form.css',
 })
