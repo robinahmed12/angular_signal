@@ -1,0 +1,149 @@
+<section class="py-5" style="background-color: #f1f9f7; min-height: 100vh">
+  <div class="container">
+    <div
+      class="card shadow border-0 mx-auto"
+      style="max-width: 700px; background-color: white; border-radius: 1rem"
+    >
+      <div
+        class="card-header text-center fw-bold fs-4 py-3"
+        style="background-color: #89ebd4; color: #0a100f"
+      >
+        Create New Course
+      </div>
+
+      <div class="card-body px-4 py-4">
+        <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+          <!-- Title -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold" style="color: #0a100f">Course Title</label>
+            <input
+              type="text"
+              formControlName="title"
+              class="form-control p-3"
+              placeholder="Enter course title"
+              style="border: 1px solid #89ebd4; color: #0a100f"
+            />
+          </div>
+
+          <!-- Instructor -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold" style="color: #0a100f">Instructor</label>
+            <input
+              type="text"
+              formControlName="instructor"
+              class="form-control p-3"
+              placeholder="Instructor name"
+              style="border: 1px solid #89ebd4; color: #0a100f"
+            />
+          </div>
+
+          <!-- Category -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold" style="color: #0a100f">Category</label>
+            <select
+              formControlName="category"
+              class="form-select p-3"
+              style="border: 1px solid #89ebd4; color: #0a100f"
+            >
+              <option value="">Select category</option>
+              <option value="frontend">Frontend Development</option>
+              <option value="backend">Backend Development</option>
+              <option value="fullstack">Full Stack</option>
+              <option value="uiux">UI/UX Design</option>
+            </select>
+          </div>
+
+          <!-- Description -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold" style="color: #0a100f">Description</label>
+            <textarea
+              rows="3"
+              formControlName="description"
+              class="form-control p-3"
+              placeholder="Write a short course description..."
+              style="border: 1px solid #89ebd4; color: #0a100f"
+            ></textarea>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold" style="color: #0a100f">Price ($)</label>
+            <input
+              type="number"
+              formControlName="price"
+              class="form-control p-3"
+              placeholder="Enter course price"
+              style="border: 1px solid #89ebd4; color: #0a100f"
+            />
+          </div>
+
+          <!-- Dynamic Modules -->
+          <div formArrayName="modules" class="mb-4">
+            <label class="fw-bold fs-5 mb-2" style="color: #0a100f">Modules</label>
+
+            <div
+              *ngFor="let module of modules.controls; let i = index"
+              [formGroupName]="i"
+              class="border rounded-3 p-3 mb-3"
+              style="border-color: #89ebd4"
+            >
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    formControlName="moduleTitle"
+                    class="form-control p-3"
+                    placeholder="Module title"
+                    style="border: 1px solid #89ebd4; color: #0a100f"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <input
+                    type="text"
+                    formControlName="duration"
+                    class="form-control p-3"
+                    placeholder="Duration (e.g. 2h 30m)"
+                    style="border: 1px solid #89ebd4; color: #0a100f"
+                  />
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+                  <button
+                    type="button"
+                    class="btn btn-sm border-0 w-100"
+                    style="background-color: #53f3ce; color: #0a100f"
+                    (click)="removeModule(i)"
+                    *ngIf="modules.length > 1"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center mb-3">
+              <button
+                type="button"
+                class="btn fw-semibold border-0 px-4 py-2"
+                style="background-color: #49caac; color: #f1f9f7"
+                (click)="addModule()"
+              >
+                + Add Module
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="text-center">
+            <button
+              type="submit"
+              class="btn fw-semibold px-5 py-2 border-0"
+              style="background-color: #49caac; color: #f1f9f7"
+            >
+              Create Course
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,151 @@
+<section class="container-md py-5" style="background-color: #f1f9f7; color: #0a100f">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold mb-0">
+      Courses <span class="text-muted fs-5">({{ courses().length }})</span>
+    </h2>
+    <button
+      class="btn fw-semibold text-white"
+      style="background-color: #49caac"
+      (click)="coursesService.loadCourses()"
+    >
+      Refresh
+    </button>
+  </div>
+
+  <!-- Loading State -->
+  @if (coursesService.loading()) {
+  <div class="alert text-center" style="background-color: #89ebd4; color: #0a100f">
+    <div class="spinner-border spinner-border-sm me-2 text-dark" role="status"></div>
+    Loading courses...
+  </div>
+  }
+
+  <!-- Error State -->
+  @if (coursesService.error()) {
+  <div
+    class="alert d-flex align-items-center justify-content-between"
+    style="background-color: #f8d7da; color: #842029"
+  >
+    <div>{{ coursesService.error() }}</div>
+    <button
+      class="btn btn-sm text-white fw-semibold"
+      style="background-color: #d64550"
+      (click)="coursesService.loadCourses()"
+    >
+      Retry
+    </button>
+  </div>
+  }
+
+  <!-- Courses Table -->
+  @if (!coursesService.loading() && courses().length > 0) {
+  <div class="table-responsive shadow-sm rounded-3">
+    <table class="table table-hover align-middle mb-0">
+      <thead style="background-color: #49caac; color: white">
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Instructor</th>
+          <th>Duration</th>
+          <th>Level</th>
+          <th>Price</th>
+          <th>Rating</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (course of courses(); track course.id; let i = $index) {
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>
+            <strong>{{ course.title }}</strong
+            ><br />
+            <small class="text-muted">{{ course.description | slice : 0 : 60 }}...</small>
+          </td>
+          <td>
+            <span class="badge text-dark" style="background-color: #89ebd4">
+              {{ course.category }}
+            </span>
+          </td>
+          <td>{{ course.instructor }}</td>
+          <td>{{ course.duration }}h</td>
+          <td>
+            <span
+              class="badge text-white"
+              [ngStyle]="{
+                'background-color':
+                  course.level === 'Beginner'
+                    ? '#49caac'
+                    : course.level === 'Intermediate'
+                    ? '#53f3ce'
+                    : '#0a100f'
+              }"
+            >
+              {{ course.level }}
+            </span>
+          </td>
+          <td class="fw-bold" style="color: #49caac">${{ course.price }}</td>
+          <td>
+            ⭐ {{ course.rating }}
+            <small class="text-muted">({{ course.studentsEnrolled }})</small>
+          </td>
+          <td>
+            <div class="d-flex gap-2">
+              <!-- Edit button -->
+              <button
+                class="btn btn-sm btn-warning"
+                (click)="deleteCourse(course)"
+                title="Edit Course"
+              >
+                ✏️
+              </button>
+
+              <!-- Delete button -->
+              <button
+                class="btn btn-sm btn-danger"
+                (click)="openModal(template)"
+                title="Delete Course"
+              >
+                🗑️
+              </button>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  }
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button
+        type="button"
+        class="btn-close close pull-right"
+        aria-label="Close"
+        (click)="modalRef?.hide()"
+      >
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">This is a modal.</div>
+  </ng-template>
+
+  <!-- Empty State -->
+  @if (!coursesService.loading() && courses().length === 0 && !coursesService.error()) {
+  <div class="alert text-center py-5" style="background-color: #fff3cd; color: #856404">
+    <h4 class="fw-bold">No courses found</h4>
+    <p class="mb-3">There are no courses available in the database.</p>
+    <button
+      class="btn fw-semibold text-white"
+      style="background-color: #49caac"
+      (click)="coursesService.loadCourses()"
+    >
+      Load Courses
+    </button>
+  </div>
+  }
+</section>

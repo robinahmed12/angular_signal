@@ -1,0 +1,155 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "Complete Angular Developer Bootcamp",
+      "instructor": "Sarah Johnson",
+      "category": "Frontend Development",
+      "duration": 42,
+      "price": 89.99,
+      "level": "Intermediate",
+      "rating": 4.7,
+      "studentsEnrolled": 12500,
+      "description": "Master Angular framework with real-world projects and best practices",
+      "image": "https://example.com/images/angular-course.jpg",
+      "lastUpdated": "2024-01-15",
+      "tags": [
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "Components"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Python & Django Full Stack Web Development",
+      "instructor": "Mike Chen",
+      "category": "Backend Development",
+      "duration": 56,
+      "price": 94.99,
+      "level": "Beginner",
+      "rating": 4.6,
+      "studentsEnrolled": 18700,
+      "description": "Build robust web applications with Python and Django framework",
+      "image": "https://example.com/images/python-django.jpg",
+      "lastUpdated": "2024-02-20",
+      "tags": [
+        "Python",
+        "Django",
+        "REST API",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "React Native - Mobile App Development",
+      "instructor": "Emily Rodriguez",
+      "category": "Mobile Development",
+      "duration": 38,
+      "price": 79.99,
+      "level": "Intermediate",
+      "rating": 4.8,
+      "studentsEnrolled": 9200,
+      "description": "Create cross-platform mobile apps using React Native",
+      "image": "https://example.com/images/react-native.jpg",
+      "lastUpdated": "2024-01-30",
+      "tags": [
+        "React Native",
+        "JavaScript",
+        "Mobile",
+        "iOS",
+        "Android"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "AWS Cloud Practitioner & Solutions Architect",
+      "instructor": "David Thompson",
+      "category": "Cloud Computing",
+      "duration": 45,
+      "price": 119.99,
+      "level": "Advanced",
+      "rating": 4.9,
+      "studentsEnrolled": 15600,
+      "description": "Become AWS certified and master cloud architecture",
+      "image": "https://example.com/images/aws-course.jpg",
+      "lastUpdated": "2024-03-10",
+      "tags": [
+        "AWS",
+        "Cloud",
+        "DevOps",
+        "Certification"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Machine Learning with Python and TensorFlow",
+      "instructor": "Dr. Alex Kumar",
+      "category": "Data Science",
+      "duration": 62,
+      "price": 129.99,
+      "level": "Advanced",
+      "rating": 4.7,
+      "studentsEnrolled": 11300,
+      "description": "Deep dive into machine learning algorithms and neural networks",
+      "image": "https://example.com/images/ml-course.jpg",
+      "lastUpdated": "2024-02-28",
+      "tags": [
+        "Machine Learning",
+        "Python",
+        "TensorFlow",
+        "AI",
+        "Neural Networks"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Node.js & Express.js Backend Mastery",
+      "instructor": "Jessica Williams",
+      "category": "Backend Development",
+      "duration": 35,
+      "price": 74.99,
+      "level": "Intermediate",
+      "rating": 4.5,
+      "studentsEnrolled": 14200,
+      "description": "Build scalable server-side applications with Node.js",
+      "image": "https://example.com/images/nodejs-course.jpg",
+      "lastUpdated": "2024-01-25",
+      "tags": [
+        "Node.js",
+        "Express.js",
+        "JavaScript",
+        "Backend",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": "4f93",
+      "title": "Eius earum mollitia ",
+      "instructor": "Aliquam id aperiam d",
+      "category": "fullstack",
+      "description": "Facere et dolor dolo",
+      "price": 29,
+      "modules": [
+        {
+          "moduleTitle": "Aut nulla ut tenetur",
+          "duration": "Quaerat dolores volu"
+        }
+      ]
+    },
+    {
+      "id": "f564",
+      "title": "Itaque reprehenderit",
+      "instructor": "Facilis eius ut qui ",
+      "category": "uiux",
+      "description": "Excepturi tenetur ra",
+      "price": 22,
+      "modules": [
+        {
+          "moduleTitle": "Adipisicing doloremq",
+          "duration": "Mollit sed quasi rep"
+        }
+      ]
+    }
+  ]
+}
