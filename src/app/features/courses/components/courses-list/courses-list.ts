@@ -7,8 +7,7 @@ import { EditCourseModal } from '../../../../shared/components/edit-course-modal
 
 @Component({
   selector: 'app-courses-list',
-  imports: [SlicePipe, CommonModule, ReactiveFormsModule, FormsModule,
-  ],
+  imports: [SlicePipe, CommonModule, ReactiveFormsModule, FormsModule],
   providers: [BsModalService],
   templateUrl: './courses-list.html',
   styleUrl: './courses-list.css',
@@ -18,8 +17,9 @@ export class CoursesList implements OnInit {
   private modalService = inject(BsModalService);
   courses = this.coursesService.courses;
   loading = signal<boolean>(true);
-  modalRef?: BsModalRef;
-  constructor() {
+
+  courseIdToDelete?: any;
+  constructor(public modalRef: BsModalRef) {
     // Log courses when they change
     effect(() => {
       console.log('Courses updated:', this.coursesService.courses());
@@ -46,11 +46,30 @@ export class CoursesList implements OnInit {
   openEditModal(course: any) {
     this.modalRef = this.modalService.show(EditCourseModal, {
       initialState: { course },
-      class: 'modal-lg'
+      class: 'modal-lg',
     });
   }
 
-  deleteCourse(id: any) {}
-  editCourse(id: any) {}
+  openConfirmModal(template: TemplateRef<void>, id: string) {
+    this.courseIdToDelete = id;
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  async confirmDeleteCourse() {
+    if (!this.courseIdToDelete) return;
+
+    try {
+      await this.coursesService.deleteCourse(this.courseIdToDelete);
+      alert(' Course deleted successfully!');
+    } catch (error) {
+      alert(' Failed to delete course.');
+    } finally {
+    }
+  }
+
+  onClose() {
+    this.modalRef.hide();
+  }
+
   viewCourse(id: any) {}
 }

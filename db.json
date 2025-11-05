@@ -1,26 +1,6 @@
 {
   "courses": [
     {
-      "id": "1",
-      "title": "Complete Angular Developer Bootcamp",
-      "instructor": "Sarah Johnson",
-      "category": "Frontend Development",
-      "duration": 42,
-      "price": 89.99,
-      "level": "Intermediate",
-      "rating": 4.7,
-      "studentsEnrolled": 12500,
-      "description": "Master Angular framework with real-world projects and best practices",
-      "image": "https://example.com/images/angular-course.jpg",
-      "lastUpdated": "2024-01-15",
-      "tags": [
-        "Angular",
-        "TypeScript",
-        "RxJS",
-        "Components"
-      ]
-    },
-    {
       "id": "2",
       "title": "Python & Django Full Stack Web Development",
       "instructor": "Mike Chen",
@@ -138,30 +118,30 @@
       ]
     },
     {
-      "id": "f564",
-      "title": "Itaque reprehenderit",
-      "instructor": "Facilis eius ut qui ",
+      "id": "3fcc",
+      "title": "Anim est mollitia a",
+      "instructor": "Enim voluptas omnis ",
       "category": "uiux",
-      "description": "Excepturi tenetur ra",
-      "price": 22,
+      "description": "Quae nihil numquam t",
+      "price": 73,
       "modules": [
         {
-          "moduleTitle": "Adipisicing doloremq",
-          "duration": "Mollit sed quasi rep"
+          "moduleTitle": "Consequat Nostrum c",
+          "duration": "Laudantium voluptat"
         }
       ]
     },
     {
-      "id": "e751",
-      "title": "Eveniet id elit n",
-      "instructor": "Cupidatat maxime nis",
-      "category": "fullstack",
-      "description": "Ut aliqua In quidem",
-      "price": 43,
+      "id": "5093",
+      "title": "Aliquid magnam dicta",
+      "instructor": "Commodi accusamus ma",
+      "category": "backend",
+      "description": "Officiis ut deleniti",
+      "price": 41,
       "modules": [
         {
-          "moduleTitle": "Omnis necessitatibus",
-          "duration": "Exercitation possimu"
+          "moduleTitle": "Fuga Sapiente elige",
+          "duration": "Ut corporis non in q"
         }
       ]
     }

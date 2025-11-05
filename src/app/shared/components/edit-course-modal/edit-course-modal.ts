@@ -1,23 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { CourseService } from '../../../features/courses/services/course.service';
 
 @Component({
   selector: 'app-edit-course-modal',
-  imports: [ReactiveFormsModule, CommonModule],
-  providers:[ BsModalRef],
+  imports: [ReactiveFormsModule, CommonModule, ModalModule],
+  providers: [],
   templateUrl: './edit-course-modal.html',
   styleUrl: './edit-course-modal.css',
 })
 export class EditCourseModal {
   @Input() course: any;
   form!: FormGroup;
+  private courseService = inject(CourseService);
 
-  constructor(
-    public bsModalRef: BsModalRef,
-    private fb: FormBuilder
-  ) {}
+  constructor(public bsModalRef: BsModalRef, private fb: FormBuilder) {}
 
   ngOnInit() {
     // Initialize form with values (or defaults)
@@ -28,10 +27,10 @@ export class EditCourseModal {
       category: [this.course?.category || '', Validators.required],
       description: [
         this.course?.description || '',
-        [Validators.required, Validators.minLength(10)]
+        [Validators.required, Validators.minLength(10)],
       ],
       price: [this.course?.price || 0, [Validators.required, Validators.min(0)]],
-      modules: this.fb.array([])
+      modules: this.fb.array([]),
     });
 
     // Load modules if exist
@@ -51,7 +50,7 @@ export class EditCourseModal {
   createModule(moduleTitle = '', duration = ''): FormGroup {
     return this.fb.group({
       moduleTitle: [moduleTitle, Validators.required],
-      duration: [duration, Validators.required]
+      duration: [duration, Validators.required],
     });
   }
 
@@ -67,9 +66,11 @@ export class EditCourseModal {
     this.bsModalRef.hide();
   }
 
-  onSave() {
+  onSave(id: any) {
     if (this.form.valid) {
       console.log('Updated course:', this.form.value);
+      const updatedCourse = this.form.value;
+      this.courseService.updateCourse(id, updatedCourse);
       // Here you can emit the data or call API to update the course
       this.bsModalRef.hide();
     } else {
